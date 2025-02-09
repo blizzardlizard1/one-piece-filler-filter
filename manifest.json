@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "One Piece Filler Skipper",
+    "version": "1.0",
+    "description": "Automatically skips filler segments in One Piece episodes on Crunchyroll.",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*.crunchyroll.com/*",
+        "https://api.anime-skip.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.crunchyroll.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
